@@ -1,0 +1,83 @@
+[global]
+
+# ไม่แสดงข้อความพัฒนา
+developmentMode = false
+
+# ไม่แสดงเมนูการแชร์
+showWarningOnDirectExecution = false
+
+[logger]
+
+# ระดับการ log
+level = "info"
+
+[client]
+
+# ไม่เก็บสถิติการใช้งาน
+gatherUsageStats = false
+
+# ไม่แสดงข้อความแจ้งเตือนเกี่ยวกับการติดตั้ง
+showErrorDetails = true
+
+[server]
+
+# พอร์ตที่ใช้งาน (สำหรับ local development)
+port = 8501
+
+# เปิดใช้งาน CORS
+enableCORS = false
+
+# เปิดใช้งาน XSS protection
+enableXsrfProtection = true
+
+# ขนาดไฟล์อัพโหลดสูงสุด (MB)
+maxUploadSize = 200
+
+# ไม่เปิด browser อัตโนมัติ
+headless = false
+
+# การตั้งค่า file watching
+runOnSave = true
+
+# Timeout สำหรับการรัน script
+scriptRunTimeout = 300
+
+[browser]
+
+# รวบรวมสถิติการใช้งาน
+gatherUsageStats = false
+
+[theme]
+
+# สีธีมหลัก (เหลืองทอง)
+primaryColor = "#FFD700"
+
+# สีพื้นหลัง
+backgroundColor = "#FFFAF0"
+
+# สีพื้นหลังรอง
+secondaryBackgroundColor = "#FFF8DC"
+
+# สีข้อความ
+textColor = "#2F2F2F"
+
+# ฟอนต์
+font = "sans serif"
+
+[deprecation]
+
+# ไม่แสดงคำเตือนเกี่ยวกับฟีเจอร์ที่เลิกใช้
+showPyplotGlobalUse = false
+
+[mapbox]
+
+# Token สำหรับแผนที่ (ถ้าใช้งาน)
+# token = "your_mapbox_token"
+
+[s3]
+
+# การตั้งค่า S3 (ถ้าใช้งาน)
+# bucket = "your_bucket_name"
+# url = "your_s3_url"
+# accessKeyId = "your_access_key"
+# secretAccessKey = "your_secret_key"
