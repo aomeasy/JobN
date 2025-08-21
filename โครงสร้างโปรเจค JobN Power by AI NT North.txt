@@ -1,0 +1,103 @@
+# โครงสร้างโปรเจค JobN Power by AI NT North
+
+## โครงสร้างไฟล์
+```
+jobn_power/
+├── app.py                      # ไฟล์หลัก Streamlit
+├── requirements.txt            # Dependencies
+├── config.py                   # การตั้งค่าเชื่อมต่อ Database และ API
+├── database/
+│   ├── __init__.py
+│   ├── models.py               # โมเดล Database (SQLAlchemy)
+│   ├── database.py             # การเชื่อมต่อ Database
+│   └── operations.py           # CRUD operations
+├── services/
+│   ├── __init__.py
+│   ├── embedding_service.py    # บริการ Embedding
+│   ├── chat_service.py         # บริการ Chatbot
+│   ├── ocr_service.py          # บริการ OCR
+│   └── line_service.py         # บริการ Line Notify
+├── utils/
+│   ├── __init__.py
+│   ├── file_handler.py         # จัดการไฟล์
+│   ├── auth.py                 # การยืนยันตัวตน
+│   └── helpers.py              # ฟังก์ชันช่วยเหลือ
+├── pages/
+│   ├── 01_📋_Document_Manager.py    # หน้าจัดการเอกสาร
+│   ├── 02_🤖_AI_Chatbot.py         # หน้า AI Chatbot
+│   ├── 03_👁️_OCR_Reader.py         # หน้าอ่าน OCR
+│   └── 04_⚙️_Settings.py           # หน้าการตั้งค่า
+├── components/
+│   ├── __init__.py
+│   ├── sidebar.py              # Sidebar components
+│   ├── chat_interface.py       # Interface สำหรับ chat
+│   └── document_viewer.py      # แสดงเอกสาร
+├── static/
+│   ├── css/
+│   │   └── style.css          # Custom CSS
+│   ├── images/
+│   │   └── logo.png           # Logo และรูปภาพ
+│   └── js/
+│       └── custom.js          # Custom JavaScript
+├── data/
+│   ├── embeddings/            # เก็บ embeddings
+│   └── uploads/               # เก็บไฟล์อัพโหลด
+├── tests/
+│   ├── __init__.py
+│   ├── test_database.py       # ทดสอบ Database
+│   ├── test_services.py       # ทดสอบ Services
+│   └── test_utils.py          # ทดสอบ Utils
+├── .streamlit/
+│   └── config.toml            # การตั้งค่า Streamlit
+├── .gitignore                 # ไฟล์ที่ไม่ต้องการใน Git
+├── README.md                  # คู่มือการใช้งาน
+└── secrets.toml.example       # ตัวอย่างการตั้งค่า secrets
+```
+
+## คำอธิบายแต่ละส่วน
+
+### 1. ไฟล์หลัก (app.py)
+- จุดเริ่มต้นของแอปพลิเคชัน Streamlit
+- กำหนดโครงสร้างหน้าหลักและการนำทาง
+- แสดงคู่มือการใช้งานและ function ต่างๆ
+
+### 2. การจัดการฐานข้อมูล (database/)
+- `models.py`: กำหนดโครงสร้างตารางด้วย SQLAlchemy
+- `database.py`: เชื่อมต่อกับ TiDB
+- `operations.py`: ฟังก์ชัน CRUD สำหรับจัดการข้อมูล
+
+### 3. บริการต่างๆ (services/)
+- `embedding_service.py`: จัดการ Vector Embeddings สำหรับ RAG
+- `chat_service.py`: จัดการ Chatbot และ RAG system
+- `ocr_service.py`: อ่านข้อความจากรูปภาพ
+- `line_service.py`: ส่งการแจ้งเตือนผ่าน Line
+
+### 4. หน้าเว็บต่างๆ (pages/)
+- หน้าจัดการเอกสาร: อัพโหลด, จัดเก็บ, ค้นหาเอกสาร
+- หน้า AI Chatbot: RAG system สำหรับตอบคำถาม
+- หน้า OCR Reader: อ่านข้อความจากรูปภาพ
+- หน้า Settings: ตั้งค่าระบบและ tokens
+
+### 5. ส่วนประกอบ (components/)
+- UI components ที่ใช้ร่วมกันในหลายๆ หน้า
+- Interface สำหรับ chat และแสดงเอกสาร
+
+## การใช้ Embeddings
+**จำเป็นต้องใช้เพราะ:**
+- **RAG System**: เพื่อค้นหาเอกสารที่เกี่ยวข้องกับคำถาม
+- **ความแม่นยำ**: Vector search ให้ผลลัพธ์ที่เกี่ยวข้องมากกว่า keyword search
+- **Semantic Search**: เข้าใจความหมายของคำถาม ไม่ใช่เพียงตัวอักษร
+- **Multilingual**: รองรับการค้นหาภาษาไทยและอังกฤษ
+
+## การพัฒนา Chatbot สำหรับอนาคต
+1. **Admin Chatbot**: ตอบคำถามเกี่ยวกับเอกสารภายในองค์กร
+2. **Customer Chatbot**: ขยายไปใช้กับลูกค้าภายนอก
+3. **Multi-tenant**: แยกข้อมูลตาม department
+4. **API Integration**: เชื่อมต่อกับระบบอื่นๆ ขององค์กร
+
+## โทนสีเหลือง - Modern Design
+- Primary: #FFD700 (Gold)
+- Secondary: #FFF8DC (Cornsilk) 
+- Accent: #FF8C00 (Dark Orange)
+- Background: #FFFAF0 (Floral White)
+- Text: #2F2F2F (Dark Gray)
